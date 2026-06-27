@@ -4,3 +4,5 @@
 *.vsidx
 
 /VulnDriverFinder/bin
+/VulnDriverFinder/obj
+/.vs

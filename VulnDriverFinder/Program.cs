@@ -1,10 +1,11 @@
-﻿using Poushec.UpdateCatalogParser;
+﻿using Microsoft.Deployment.Compression.Cab;
+using PeNet;
+using Poushec.UpdateCatalogParser;
 using Poushec.UpdateCatalogParser.Models;
 using System;
+using System.Globalization;
 using System.IO;
 using System.Net;
-using Microsoft.Deployment.Compression.Cab;
-using PeNet;
 using System.Text.RegularExpressions;
 
 static void WriteColor(string message, ConsoleColor color)
@@ -102,7 +103,7 @@ void ProcessDirectory(string targetDirectory)
 }
 
 var client = new HttpClient();
-var catalogClient = new CatalogClient(client, 3);
+var catalogClient = new CatalogClient(client, CultureInfo.InvariantCulture, 3);
 
 Directory.CreateDirectory(Directory.GetCurrentDirectory() + "\\downloads");
 
@@ -127,7 +128,7 @@ Parallel.ForEach(results, (item, state, index) =>
         {
             return;
         }
-        UpdateBase update_details;
+        UpdateInfo update_details;
 
         try
         {

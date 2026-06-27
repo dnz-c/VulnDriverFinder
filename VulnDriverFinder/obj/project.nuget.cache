@@ -1,22 +1,37 @@
 {
   "version": 2,
-  "dgSpecHash": "qketAQufbehzZKSOgHALiZEPfIkDB6BMJxuyZAa1XhvfXSojx1YbZdLlnFsB1hivW2DIFQ7TrQKNw9e1QuqU/Q==",
+  "dgSpecHash": "Kmq+fJqD7Q4=",
   "success": true,
-  "projectFilePath": "D:\\MyProgramming\\VulnDriverFinder\\VulnDriverFinder\\VulnDriverFinder.csproj",
+  "projectFilePath": "D:\\MyProgramming\\C#\\VulnDriverFinder\\VulnDriverFinder\\VulnDriverFinder.csproj",
   "expectedPackageFiles": [
-    "C:\\Users\\Deniz\\.nuget\\packages\\htmlagilitypack\\1.11.46\\htmlagilitypack.1.11.46.nupkg.sha512",
+    "C:\\Users\\Deniz\\.nuget\\packages\\htmlagilitypack\\1.12.1\\htmlagilitypack.1.12.1.nupkg.sha512",
+    "C:\\Users\\Deniz\\.nuget\\packages\\microsoft.bcl.asyncinterfaces\\9.0.4\\microsoft.bcl.asyncinterfaces.9.0.4.nupkg.sha512",
     "C:\\Users\\Deniz\\.nuget\\packages\\msftcompressioncab\\1.0.0\\msftcompressioncab.1.0.0.nupkg.sha512",
     "C:\\Users\\Deniz\\.nuget\\packages\\penet\\4.0.1\\penet.4.0.1.nupkg.sha512",
     "C:\\Users\\Deniz\\.nuget\\packages\\penet.asn1\\2.0.1\\penet.asn1.2.0.1.nupkg.sha512",
+    "C:\\Users\\Deniz\\.nuget\\packages\\poushec.updatecatalogparser\\4.2.0\\poushec.updatecatalogparser.4.2.0.nupkg.sha512",
+    "C:\\Users\\Deniz\\.nuget\\packages\\system.buffers\\4.5.1\\system.buffers.4.5.1.nupkg.sha512",
     "C:\\Users\\Deniz\\.nuget\\packages\\system.formats.asn1\\7.0.0\\system.formats.asn1.7.0.0.nupkg.sha512",
-    "C:\\Users\\Deniz\\.nuget\\packages\\system.security.cryptography.pkcs\\7.0.3\\system.security.cryptography.pkcs.7.0.3.nupkg.sha512"
+    "C:\\Users\\Deniz\\.nuget\\packages\\system.io.pipelines\\9.0.4\\system.io.pipelines.9.0.4.nupkg.sha512",
+    "C:\\Users\\Deniz\\.nuget\\packages\\system.memory\\4.5.5\\system.memory.4.5.5.nupkg.sha512",
+    "C:\\Users\\Deniz\\.nuget\\packages\\system.runtime.compilerservices.unsafe\\6.0.0\\system.runtime.compilerservices.unsafe.6.0.0.nupkg.sha512",
+    "C:\\Users\\Deniz\\.nuget\\packages\\system.security.cryptography.pkcs\\7.0.3\\system.security.cryptography.pkcs.7.0.3.nupkg.sha512",
+    "C:\\Users\\Deniz\\.nuget\\packages\\system.text.encodings.web\\9.0.4\\system.text.encodings.web.9.0.4.nupkg.sha512",
+    "C:\\Users\\Deniz\\.nuget\\packages\\system.text.json\\9.0.4\\system.text.json.9.0.4.nupkg.sha512",
+    "C:\\Users\\Deniz\\.nuget\\packages\\system.threading.tasks.extensions\\4.5.4\\system.threading.tasks.extensions.4.5.4.nupkg.sha512",
+    "C:\\Users\\Deniz\\.nuget\\packages\\microsoft.windowsdesktop.app.ref\\7.0.20\\microsoft.windowsdesktop.app.ref.7.0.20.nupkg.sha512",
+    "C:\\Users\\Deniz\\.nuget\\packages\\microsoft.netcore.app.ref\\7.0.20\\microsoft.netcore.app.ref.7.0.20.nupkg.sha512",
+    "C:\\Users\\Deniz\\.nuget\\packages\\microsoft.aspnetcore.app.ref\\7.0.20\\microsoft.aspnetcore.app.ref.7.0.20.nupkg.sha512",
+    "C:\\Users\\Deniz\\.nuget\\packages\\microsoft.netcore.app.host.win-x64\\7.0.20\\microsoft.netcore.app.host.win-x64.7.0.20.nupkg.sha512"
   ],
   "logs": [
     {
       "code": "NU1701",
       "level": "Warning",
-      "warningLevel": 1,
       "message": "Das Paket \"MSFTCompressionCab 1.0.0\" wurde nicht mit dem Projektzielframework \"net7.0\", sondern mit \".NETFramework,Version=v4.6.1, .NETFramework,Version=v4.6.2, .NETFramework,Version=v4.7, .NETFramework,Version=v4.7.1, .NETFramework,Version=v4.7.2, .NETFramework,Version=v4.8, .NETFramework,Version=v4.8.1\" wiederhergestellt. Dieses Paket ist mit Ihrem Projekt möglicherweise nicht vollständig kompatibel.",
+      "projectPath": "D:\\MyProgramming\\C#\\VulnDriverFinder\\VulnDriverFinder\\VulnDriverFinder.csproj",
+      "warningLevel": 1,
+      "filePath": "D:\\MyProgramming\\C#\\VulnDriverFinder\\VulnDriverFinder\\VulnDriverFinder.csproj",
       "libraryId": "MSFTCompressionCab",
       "targetGraphs": [
         "net7.0"

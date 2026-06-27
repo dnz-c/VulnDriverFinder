@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "D:\\MyProgramming\\VulnDriverFinder\\VulnDriverFinder\\VulnDriverFinder.csproj": {}
+    "D:\\MyProgramming\\C#\\VulnDriverFinder\\VulnDriverFinder\\VulnDriverFinder.csproj": {}
   },
   "projects": {
-    "D:\\MyProgramming\\VulnDriverFinder\\VulnDriverFinder\\VulnDriverFinder.csproj": {
+    "D:\\MyProgramming\\C#\\VulnDriverFinder\\VulnDriverFinder\\VulnDriverFinder.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\MyProgramming\\VulnDriverFinder\\VulnDriverFinder\\VulnDriverFinder.csproj",
+        "projectUniqueName": "D:\\MyProgramming\\C#\\VulnDriverFinder\\VulnDriverFinder\\VulnDriverFinder.csproj",
         "projectName": "VulnDriverFinder",
-        "projectPath": "D:\\MyProgramming\\VulnDriverFinder\\VulnDriverFinder\\VulnDriverFinder.csproj",
+        "projectPath": "D:\\MyProgramming\\C#\\VulnDriverFinder\\VulnDriverFinder\\VulnDriverFinder.csproj",
         "packagesPath": "C:\\Users\\Deniz\\.nuget\\packages\\",
-        "outputPath": "D:\\MyProgramming\\VulnDriverFinder\\VulnDriverFinder\\obj\\",
+        "outputPath": "D:\\MyProgramming\\C#\\VulnDriverFinder\\VulnDriverFinder\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
@@ -30,6 +30,7 @@
         },
         "frameworks": {
           "net7.0": {
+            "framework": "net7.0",
             "targetAlias": "net7.0",
             "projectReferences": {}
           }
@@ -38,15 +39,22 @@
           "warnAsError": [
             "NU1605"
           ]
-        }
+        },
+        "restoreAuditProperties": {
+          "enableAudit": "true",
+          "auditLevel": "low",
+          "auditMode": "direct"
+        },
+        "SdkAnalysisLevel": "10.0.300"
       },
       "frameworks": {
         "net7.0": {
+          "framework": "net7.0",
           "targetAlias": "net7.0",
           "dependencies": {
             "HtmlAgilityPack": {
               "target": "Package",
-              "version": "[1.11.46, )"
+              "version": "[1.12.1, )"
             },
             "MSFTCompressionCab": {
               "target": "Package",
@@ -55,6 +63,10 @@
             "PeNet": {
               "target": "Package",
               "version": "[4.0.1, )"
+            },
+            "Poushec.UpdateCatalogParser": {
+              "target": "Package",
+              "version": "[4.2.0, )"
             }
           },
           "imports": [
@@ -68,12 +80,30 @@
           ],
           "assetTargetFallback": true,
           "warn": true,
+          "downloadDependencies": [
+            {
+              "name": "Microsoft.AspNetCore.App.Ref",
+              "version": "[7.0.20, 7.0.20]"
+            },
+            {
+              "name": "Microsoft.NETCore.App.Host.win-x64",
+              "version": "[7.0.20, 7.0.20]"
+            },
+            {
+              "name": "Microsoft.NETCore.App.Ref",
+              "version": "[7.0.20, 7.0.20]"
+            },
+            {
+              "name": "Microsoft.WindowsDesktop.App.Ref",
+              "version": "[7.0.20, 7.0.20]"
+            }
+          ],
           "frameworkReferences": {
             "Microsoft.NETCore.App": {
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.400\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\10.0.300-preview.0.26177.108\\RuntimeIdentifierGraph.json"
         }
       }
     }

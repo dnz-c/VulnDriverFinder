@@ -8,15 +8,10 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <PackageReference Include="HtmlAgilityPack" Version="1.11.46" />
+    <PackageReference Include="HtmlAgilityPack" Version="1.12.1" />
     <PackageReference Include="MSFTCompressionCab" Version="1.0.0" />
     <PackageReference Include="PeNet" Version="4.0.1" />
-  </ItemGroup>
-
-  <ItemGroup>
-    <Reference Include="Poushec.UpdateCatalogParser">
-      <HintPath>Poushec.UpdateCatalogParser.dll</HintPath>
-    </Reference>
+    <PackageReference Include="Poushec.UpdateCatalogParser" Version="4.2.0" />
   </ItemGroup>
 
 </Project>
