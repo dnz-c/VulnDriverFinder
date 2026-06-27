@@ -2,9 +2,8 @@
 using PeNet;
 using Poushec.UpdateCatalogParser;
 using Poushec.UpdateCatalogParser.Models;
-using System;
+using System.Diagnostics;
 using System.Globalization;
-using System.IO;
 using System.Net;
 using System.Text.RegularExpressions;
 
@@ -166,6 +165,108 @@ Parallel.ForEach(results, (item, state, index) =>
         }
     }
 });
+
+string targetDir = Path.Combine(Directory.GetCurrentDirectory(), "check_me");
+
+Console.Write($"Found {Directory.GetFiles(targetDir).Length} potentiall vulnerable drivers, do you want AI analysis on these drivers? (y/n): ");
+string? ai_analysis = Console.ReadLine();
+
+if (Directory.Exists(targetDir) && Directory.GetFiles(targetDir).Length > 0 && ai_analysis == "y")
+{
+    Console.WriteLine("\nstarting Claude analysis of potentially vulnerable drivers");
+
+    string prompt = """
+        Your task is to create a complete and comprehensive reverse engineering analysis.
+        The Task is to determine wether this driver exposes physical read/write privileges to a usermode application via IOCTL.
+        If it exposes such a vulnerability write a small PoC of a usermode process that sends commands to the driver to read/write physical memory
+
+        Use the following systematic methodology:
+
+        1. **Decompilation Analysis**
+           - Thoroughly inspect the decompiler output
+           - Add detailed comments documenting your findings
+           - Focus on understanding the actual functionality and purpose of each component (do not rely on old, incorrect comments)
+
+        2. **Improve Readability in the Database**
+           - Rename variables to sensible, descriptive names
+           - Correct variable and argument types where necessary (especially pointers and array types)
+           - Update function names to be descriptive of their actual purpose
+
+        3. **Deep Dive When Needed**
+           - If more details are necessary, examine the disassembly and add comments with findings
+           - Document any low-level behaviors that aren't clear from the decompilation alone
+           - Use sub-agents to perform detailed analysis
+
+        4. **Important Constraints**
+           - NEVER convert number bases yourself - use the int_convert MCP tool if needed
+           - Use MCP tools to retrieve information as necessary
+           - Derive all conclusions from actual analysis, not assumptions
+
+        5. **Documentation**
+           - Produce comprehensive RE/*.md files with your findings
+           - Document the steps taken and methodology used
+           - When asked by the user, ensure accuracy over previous analysis file
+           - Organize findings in a way that serves the project goals outlined in in this prompt.
+        """;
+
+    var claudeProcess = new ProcessStartInfo
+    {
+        FileName = "claude",
+        Arguments = "--print --dangerously-skip-permissions --model opusplan --allowedTools Read,Write,Bash,mcp__plugin_ida-pro_idalib__*",
+        WorkingDirectory = targetDir,
+        UseShellExecute = false,
+        RedirectStandardInput = true,
+        RedirectStandardOutput = true,
+    };
+
+    try
+    {
+        using var proc = Process.Start(claudeProcess)!;
+        await proc.StandardInput.WriteLineAsync(prompt);
+        proc.StandardInput.Close();
+
+        using var cts = new CancellationTokenSource();
+        char[] spinner = { '|', '/', '-', '\\' };
+
+        var spinnerTask = Task.Run(async () =>
+        {
+            int frame = 0;
+            try
+            {
+                while (true)
+                {
+                    Console.Write($"\r  Analyzing... {spinner[frame++ % 4]}");
+                    await Task.Delay(100, cts.Token);
+                }
+            }
+            catch (OperationCanceledException) { }
+            Console.Write("\r" + new string(' ', 25) + "\r");
+        });
+
+        string? line;
+        while ((line = await proc.StandardOutput.ReadLineAsync()) != null)
+        {
+            if (!cts.IsCancellationRequested)
+            {
+                cts.Cancel();
+                await spinnerTask;
+            }
+            Console.WriteLine(line);
+        }
+
+        cts.Cancel();
+        await spinnerTask;
+        proc.WaitForExit();
+    }
+    catch (Exception ex)
+    {
+        Console.WriteLine($"could not invoke claude code: {ex.Message}");
+    }
+}
+else
+{
+    Console.WriteLine("\nno potentially vulnerable drivers were found to analyze or no analysis was requested");
+}
 
 Console.WriteLine("done.");
 Console.ReadKey();
