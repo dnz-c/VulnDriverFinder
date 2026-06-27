@@ -16,4 +16,4 @@ You need to download the claude code CLI and authenticate yourself so you can ru
 You need to follow the steps in this github documentation: https://github.com/mrexodia/ida-pro-mcp to enable claude to use IDA via MCP
 
 ## Examples
-An example of a vulnerable driver with a detailed analysis and PoC fully written by claude can be found in the RE folder
+An example of a vulnerable driver with a detailed analysis and PoC fully written by claude can be found in the [RE Folder](https://github.com/dnz-c/VulnDriverFinder/tree/main/RE)
